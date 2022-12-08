@@ -10,10 +10,12 @@ function HeaderDropdown(props) {
                 </div>
             </div>
             <div className='container'>
+                <div className="header__dropdown_head">
                 <div className='header__dropdown-content'>
                     <h1>{title}</h1>
                     <p>{text}</p>
                     <a href='#'>Перейти в каталог</a>
+                </div>
                 </div>
             </div>
         </div>

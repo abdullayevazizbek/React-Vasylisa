@@ -3,6 +3,7 @@ import SearchIcon from '../assets/icons/SearchIcon'
 import HeartIcon from './../assets/icons/HeartIcon'
 import MenuIcon from './../assets/icons/MenuIcon'
 import HeaderDropdown from './HeaderDropdown'
+import HeaderMenu from './HeaderMenu'
 
 
 
@@ -11,6 +12,7 @@ import HeaderDropdown from './HeaderDropdown'
 function Header() {
     const [dropdownVisible, setDropdownVisible] = useState(false)
     const [dropdownState, setDropdownState] = useState({})
+    const [headerMenuVisible, setHeaderMenuVisble] = useState(false)
 
     function handleLink(item) {
         console.log(item);
@@ -20,6 +22,16 @@ function Header() {
             setDropdownState({})
         } else {
             setDropdownVisible(true)
+        }
+    }
+
+    function heandleMenuBtn() {
+        if (headerMenuVisible) {
+            setHeaderMenuVisblez(false)
+        } else {
+            setDropdownVisible(false)
+            setDropdownState({})
+            setHeaderMenuVisble(true)
         }
     }
 
@@ -82,17 +94,17 @@ function Header() {
     const headerIcons = [
         {
             id: 1,
-            icon: <SearchIcon/>,
+            icon: <SearchIcon />,
             content: '/',
         },
         {
             id: 2,
-            icon: <SearchIcon/>,
+            icon: <SearchIcon />,
             content: '/',
         },
         {
             id: 3,
-            icon: <SearchIcon/>,
+            icon: <SearchIcon />,
             content: {
                 link: 'Каталог Новости o бренде o компании Партнёрам Отзывы FAQ Контакты ',
             }
@@ -133,27 +145,22 @@ function Header() {
                         />
                     ) : null}
                     <div className='header__icons'>
-                        {
-                            headerIcons.map((item) => {
-                                return (
-                                    <button className='header__btn'>
-                                        {/* <SearchIcon /> */}
-                                        {/* <HeartIcon />
-                                        <MenuIcon /> */}
+                        <button className='header__btn'>
+                            <SearchIcon />
+                        </button>
+                        <button className='header__btn'>
+                            <HeartIcon />
+                        </button>
+                        <button className='header__btn'
+                            onClick={()=> heandleMenuBtn()}
+                            >
+                            <MenuIcon />
+                        </button>
 
-                                    </button>
-                                    // <button className='header__btn'>
-                                    //     <HeartIcon />
-                                    // </button>
-                                    // <button className='header__btn'>
-                                    //     <MenuIcon />
-                                    // </button>
-                                )
-                            })
-                        }
                     </div>
                 </div>
             </div>
+            <HeaderMenu open={headerMenuVisible}/>
         </header>
     )
 }
