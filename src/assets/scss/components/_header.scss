@@ -1,0 +1,57 @@
+.header {
+    position: relative;
+    padding-top: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__link {
+        padding: 40px 20px;
+        background-color: transparent;
+        border: none;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        border-bottom: 2px solid transparent;
+
+        &:hover,
+        &.open {
+            color: $yellow-color;
+            border-bottom: 2px solid $yellow-color;
+        }
+    }
+
+    &__btn {
+        background-color: transparent;
+        border: none;
+
+        &:not(:last-child) {
+            margin-right: 40px;
+        }
+    }
+
+    &__dropdown {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        background-color: red;
+
+        &-head {
+            padding: 10px 0;
+            background-color: black;
+            text-align: center;
+
+            h3 {
+                color: #fff;
+            }
+        }
+
+        &-content {
+            width: 30%;
+        }
+    }
+}
